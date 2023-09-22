@@ -1,28 +1,33 @@
 package es.ulpgc;
 
-import java.util.Map;
-import java.util.stream.Stream;
+import es.ulpgc.strands.Antisense;
+import es.ulpgc.strands.Sense;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class DNA {
-    private final String templateStrand;
+    private final Strand strand;
 
-    public DNA(String strand) {
-        this.templateStrand = strand;
+    public DNA(Strand strand) {
+        this.strand = strand;
     }
 
-    public String templateStrand() {
-        return templateStrand;
+    public Strand templateStrand() {
+        if (isTemplateStrand()) return this.strand;
+        return new Antisense(getComplementaryStrand());
     }
 
-    public Stream<Nucleotides> nucleotides() {
-        Map<Character, Nucleotides> correspondence = Map.of('A', Nucleotides.Adenine,
-                'T', Nucleotides.Thymine,
-                'G', Nucleotides.Guanine,
-                'C', Nucleotides.Cytosine);
-        return templateStrand.chars()
-                .mapToObj(i -> (char) i)
-                .map(correspondence::get);
+    public Strand codingStrand() {
+        if (isTemplateStrand()) return new Sense(getComplementaryStrand());
+        return this.strand;
     }
 
-    public enum Nucleotides {Adenine, Thymine, Guanine, Cytosine}
+    private boolean isTemplateStrand() {
+        return this.strand instanceof Antisense;
+    }
+
+    private List<NitrogenousBase> getComplementaryStrand() {
+        return this.strand.bases().stream().map(NitrogenousBase::complement).collect(Collectors.toList());
+    }
 }

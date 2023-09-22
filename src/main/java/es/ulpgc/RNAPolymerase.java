@@ -1,16 +1,22 @@
 package es.ulpgc;
 
-import java.util.Map;
+import es.ulpgc.strands.MessengerRNA;
+
+import java.util.stream.Collectors;
+
+import static es.ulpgc.NitrogenousBase.*;
 
 public class RNAPolymerase {
-    public MessengerRNA transcript(DNA dna) {
-        Map<DNA.Nucleotides, Nucleotides> correspondence = Map.of(
-                DNA.Nucleotides.Adenine, Nucleotides.Uracil,
-                DNA.Nucleotides.Thymine, Nucleotides.Adenine,
-                DNA.Nucleotides.Guanine, Nucleotides.Cytosine,
-                DNA.Nucleotides.Cytosine, Nucleotides.Guanine);
-        return new MessengerRNA(dna.nucleotides().map(correspondence::get));
+    public MessengerRNA transcribe(DNA dna, int promoter, int termination) {
+        if ((termination - promoter) % 3 != 0) throw new RuntimeException("Gene length is not divisible by three");
+        return new MessengerRNA(dna.templateStrand().bases().stream()
+                .skip(promoter)
+                .map(RNAPolymerase::complement)
+                .limit(termination)
+                .collect(Collectors.toList()));
     }
 
-    public enum Nucleotides {Adenine, Uracil, Guanine, Cytosine}
+    private static NitrogenousBase complement(NitrogenousBase base) {
+        return base == ADENINE ? URACIL : base.complement();
+    }
 }
