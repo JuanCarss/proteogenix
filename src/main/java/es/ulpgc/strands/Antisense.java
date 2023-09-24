@@ -1,7 +1,7 @@
 package es.ulpgc.strands;
 
-import es.ulpgc.Strand;
 import es.ulpgc.NitrogenousBase;
+import es.ulpgc.Strand;
 
 import java.util.List;
 

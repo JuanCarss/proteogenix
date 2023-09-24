@@ -1,3 +1,4 @@
+import es.ulpgc.Codon;
 import es.ulpgc.DNA;
 import es.ulpgc.strands.Antisense;
 import es.ulpgc.strands.Sense;
@@ -31,6 +32,30 @@ public class DNATest {
     public void should_return_coding_strand_from_DNA_with_antisense_strand() {
         assertThat(new DNA(new Antisense(List.of(ADENINE, GUANINE, CYTOSINE, THYMINE))).codingStrand().bases())
                 .isEqualTo(List.of(THYMINE, CYTOSINE, GUANINE, ADENINE));
+    }
+
+    @Test
+    public void should_return_coding_strand_codons_from_DNA_with_sense_strand() {
+        assertThat(new DNA(new Sense(List.of(GUANINE, CYTOSINE, THYMINE, GUANINE, CYTOSINE, ADENINE))).codingStrand().codons())
+                .isEqualTo(List.of(new Codon(GUANINE, CYTOSINE, THYMINE), new Codon(GUANINE, CYTOSINE, ADENINE)));
+    }
+
+    @Test
+    public void should_return_template_strand_codons_from_DNA_with_sense_strand() {
+        assertThat(new DNA(new Sense(List.of(GUANINE, CYTOSINE, THYMINE, GUANINE, CYTOSINE, ADENINE))).codingStrand().codons())
+                .isEqualTo(List.of(new Codon(GUANINE, CYTOSINE, THYMINE), new Codon(GUANINE, CYTOSINE, ADENINE)));
+    }
+
+    @Test
+    public void should_return_coding_strand_codons_from_DNA_with_antisense_strand() {
+        assertThat(new DNA(new Antisense(List.of(GUANINE, CYTOSINE, THYMINE, GUANINE, CYTOSINE, ADENINE))).codingStrand().codons())
+                .isEqualTo(List.of(new Codon(CYTOSINE, GUANINE, ADENINE), new Codon(CYTOSINE, GUANINE, THYMINE)));
+    }
+
+    @Test
+    public void should_return_template_strand_codons_from_DNA_with_antisense_strand() {
+        assertThat(new DNA(new Antisense(List.of(GUANINE, CYTOSINE, THYMINE, GUANINE, CYTOSINE, ADENINE))).codingStrand().codons())
+                .isEqualTo(List.of(new Codon(CYTOSINE, GUANINE, ADENINE), new Codon(CYTOSINE, GUANINE, THYMINE)));
     }
 
     @Test(expected = RuntimeException.class)

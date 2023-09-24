@@ -1,4 +1,6 @@
 package es.ulpgc;
 
-public class Protein {
+import java.util.List;
+
+public record Protein(List<AminoAcid> aminoAcids) {
 }
