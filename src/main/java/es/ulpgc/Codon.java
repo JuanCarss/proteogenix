@@ -21,18 +21,6 @@ public class Codon {
         this.thirdBase = bases.get(2);
     }
 
-    public NitrogenousBase firstBase() {
-        return firstBase;
-    }
-
-    public NitrogenousBase secondBase() {
-        return secondBase;
-    }
-
-    public NitrogenousBase thirdBase() {
-        return thirdBase;
-    }
-
     public List<NitrogenousBase> bases() {
         return List.of(this.firstBase, this.secondBase, this.thirdBase);
     }
