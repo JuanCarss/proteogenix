@@ -13,6 +13,9 @@ public class Ribosome {
     }
 
     public Protein translate(MessengerRNA mRNA) {
-        return new Protein(mRNA.codons().stream().map(tRNA::toAminoAcid).takeWhile(Objects::nonNull).collect(Collectors.toList()));
+        return new Protein(mRNA.codons().stream()
+                .map(tRNA::toAminoAcid)
+                .takeWhile(Objects::nonNull)
+                .collect(Collectors.toList()));
     }
 }

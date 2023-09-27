@@ -16,4 +16,10 @@ public class RibosomeTest {
         assertThat(new Ribosome(new TransferRNA()).translate(new MessengerRNA(List.of(ADENINE, GUANINE, CYTOSINE, CYTOSINE, URACIL, ADENINE, CYTOSINE, CYTOSINE, CYTOSINE))))
                 .isEqualTo(new Protein(List.of(SERINE, LEUCINE, PROLINE)));
     }
+
+    @Test
+    public void should_stop_creation_with_codon() {
+        assertThat(new Ribosome(new TransferRNA()).translate(new MessengerRNA(List.of(ADENINE, GUANINE, CYTOSINE, URACIL, ADENINE, ADENINE, CYTOSINE, CYTOSINE, CYTOSINE))))
+                .isEqualTo(new Protein(List.of(SERINE)));
+    }
 }

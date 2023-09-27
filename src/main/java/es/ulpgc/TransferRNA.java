@@ -47,8 +47,8 @@ public class TransferRNA {
         map.put(List.of(GUANINE,CYTOSINE,GUANINE), ALANINE);
         map.put(List.of(URACIL,ADENINE,URACIL),TYROSINE);
         map.put(List.of(URACIL,ADENINE,CYTOSINE),TYROSINE);
-        map.put(List.of(URACIL,ADENINE,ADENINE),null);
-        map.put(List.of(URACIL,ADENINE,GUANINE),null);
+        map.put(List.of(URACIL,ADENINE,ADENINE), null);
+        map.put(List.of(URACIL,ADENINE,GUANINE), null);
         map.put(List.of(CYTOSINE,ADENINE,URACIL),HISTIDINE); 
         map.put(List.of(CYTOSINE,ADENINE,CYTOSINE),HISTIDINE);
         map.put(List.of(CYTOSINE,ADENINE,ADENINE),GLUTAMINE);
@@ -62,7 +62,7 @@ public class TransferRNA {
         map.put(List.of(GUANINE,ADENINE,GUANINE),GLUTAMIC_ACID);
         map.put(List.of(URACIL,GUANINE,URACIL), CYSTEINE);
         map.put(List.of(URACIL,GUANINE,CYTOSINE),CYSTEINE);
-        map.put(List.of(URACIL,GUANINE,ADENINE),null);
+        map.put(List.of(URACIL,GUANINE,ADENINE), null);
         map.put(List.of(URACIL,GUANINE,GUANINE),TRYPTOPHAN); 
         map.put(List.of(CYTOSINE,GUANINE,URACIL),ARGININE);
         map.put(List.of(CYTOSINE,GUANINE,CYTOSINE),ARGININE);
