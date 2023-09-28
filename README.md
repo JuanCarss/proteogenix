@@ -86,13 +86,16 @@ Estos métodos se utilizan para comparar objetos Codon. El método equals compar
 La clase TransferRNA es una representación de una molécula de ARN de transferencia (ARNt) y su función principal es traducir un codón en una secuencia de bases nitrogenadas en
 el ARNm a un aminoácido específico. Aquí está una explicación resumida de esta clase:
 
-codonConversion: Esta es una constante estática que representa una tabla de conversión entre codones (secuencias de tres bases) y aminoácidos. Utiliza un Map para asociar cada posible secuencia
+### codonConversion: 
+Esta es una constante estática que representa una tabla de conversión entre codones (secuencias de tres bases) y aminoácidos. Utiliza un Map para asociar cada posible secuencia
 de tres bases nitrogenadas con un aminoácido correspondiente. Esto refleja el código genético en el que ciertos codones codifican para aminoácidos específicos.
 
-initMap: Este método estático es utilizado para inicializar la tabla de conversión codonConversion. Asocia cada posible secuencia de tres bases con un aminoácido correspondiente. Las secuencias
+### initMap: 
+Este método estático es utilizado para inicializar la tabla de conversión codonConversion. Asocia cada posible secuencia de tres bases con un aminoácido correspondiente. Las secuencias
 de bases nitrogenadas se representan como listas de NitrogenousBase, y los aminoácidos se representan como valores de la enumeración AminoAcid.
 
-toAminoAcid: Este método toma un objeto Codon como entrada y devuelve el aminoácido correspondiente según la tabla de conversión codonConversion. El Codon proporciona las bases nitrogenadas que
+### toAminoAcid: 
+Este método toma un objeto Codon como entrada y devuelve el aminoácido correspondiente según la tabla de conversión codonConversion. El Codon proporciona las bases nitrogenadas que
 se deben buscar en la tabla para determinar el aminoácido.
 
 ## Ribosome
@@ -100,7 +103,7 @@ se deben buscar en la tabla para determinar el aminoácido.
 La clase Ribosome representa un ribosoma, una organela celular esencial en la síntesis de proteínas. Su función principal es tomar una secuencia de ARN mensajero (ARNm) y traducirla en una proteína,
 utilizando ARNt (ARN de transferencia) como intermediario. Aquí tienes una explicación resumida de esta clase:
 
-Constructor:
+### Constructor:
 
 El constructor de la clase Ribosome toma un objeto TransferRNA (tRNA) como parámetro. El tRNA desempeña un papel crucial en la traducción del código genético.
 Método translate:
