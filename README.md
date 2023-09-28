@@ -111,3 +111,7 @@ public class Main {
 ```
 Este código representa una simulación simplificada de la síntesis de proteínas. Comienza con una cadena de ADN, la transcribe en ARNm y luego traduce ese ARNm en una proteína. Cada paso se realiza utilizando clases específicas que simulan las etapas del proceso biológico real. Este tipo de simulación puede ser útil para comprender mejor la biología molecular y genética o para fines educativos y de investigación.
 
+## Contact
+
+(c) 2023 Juan Carlos Santana Santana
+(c) 2023 Liam Manuel Mahmud Morera
