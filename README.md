@@ -24,6 +24,7 @@ para obtener una lista de codones a partir de la secuencia de bases. Esta interf
 Esta clase implementa la interfaz DNADeserializer, que parece ser una interfaz diseñada para deserializar datos de ADN.
 Tiene un método deserialize que toma una cadena de ADN como entrada y devuelve un objeto DNA.
 En el método deserialize, verifica si la cadena de ADN representa una hebra de sentido (Sense) o una hebra de antisentido (Antisense) examinando un carácter específico en la cadena.
+
 Si el carácter es 's', se considera una hebra de sentido; de lo contrario, se considera una hebra de antisentido.
 Luego, llama al método buildStrand para crear una lista de NitrogenousBase que representa la cadena de bases nitrogenadas.
 Utiliza esta lista de bases nitrogenadas para crear un objeto DNA apropiado (ya sea Sense o Antisense) y lo devuelve.
@@ -151,16 +152,19 @@ Preparación (setUp):
 
 En el método setUp, se inicializan tres objetos:
 
-deserializer: Un objeto de la clase TsvDNADeserializer, que se utiliza para deserializar una cadena de ADN.
+### deserializer: 
+Un objeto de la clase TsvDNADeserializer, que se utiliza para deserializar una cadena de ADN.
 
-polymerase: Un objeto de la clase RNAPolymerase, que se utiliza para realizar la transcripción del ADN en ARNm.
+### polymerase: 
+Un objeto de la clase RNAPolymerase, que se utiliza para realizar la transcripción del ADN en ARNm.
 
-ribosome: Un objeto de la clase Ribosome, que se utiliza para traducir el ARNm en una proteína.
+### ribosome: 
+Un objeto de la clase Ribosome, que se utiliza para traducir el ARNm en una proteína.
 
 Caso de prueba (should_synthesize_protein_from_DNA_with_sense_strand):
 
 Este método de prueba verifica el proceso de síntesis de proteínas a partir de una cadena de ADN que tiene una hebra de sentido ("sense strand").
-Se crea una instancia de la clase DNA mediante la deserialización de la cadena "ATGGGGCTCAGCGAC\tS" utilizando el deserializer. Esta cadena representa una secuencia de ADN con una hebra de sentido.
+Se crea una instancia de la clase DNA mediante la deserialización de la cadena "ATGGGGCTCAGCGAC\tS" utilizando el deserializer. Esta cadena representa una secuencia de ADN con una hebra Sense.
 Luego, se utiliza el polymerase para transcribir la secuencia de ADN en un ARNm. Se toma un segmento de la secuencia desde la posición 0 hasta la 15.
 Finalmente, se utiliza el ribosome para traducir el ARNm en una proteína.
 Se utiliza assertThat del framework AssertJ para afirmar que la proteína resultante es igual a una lista de aminoácidos esperados (METHIONINE, GLYCINE, LEUCINE, SERINE, ASPARTIC_ACID).
