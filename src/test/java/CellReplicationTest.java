@@ -1,15 +1,11 @@
 import es.ulpgc.*;
-import es.ulpgc.deserializers.TsvDNADeserializer;
 import es.ulpgc.polymerases.RNAPolymerase;
 import org.junit.Before;
 import org.junit.Test;
+import es.ulpgc.deserializers.TsvDNADeserializer;
 
-import java.util.List;
+public class CellReplicationTest {
 
-import static es.ulpgc.AminoAcid.*;
-import static org.assertj.core.api.Assertions.assertThat;
-
-public class ProteinSynthesisTest {
     private DNADeserializer deserializer;
     private RNAPolymerase polymerase;
     private Ribosome ribosome;
@@ -22,9 +18,11 @@ public class ProteinSynthesisTest {
     }
 
     @Test
-    public void should_synthesize_protein_from_DNA_with_sense_strand() {
+    public void should_create_Cell_from_DNA() {
         DNA dna = deserializer.deserialize("ATGGGGCTCAGCGAC\tS");
-        assertThat(ribosome.translate(polymerase.transcribe(dna.templateStrand(), 0, 15)))
-                .isEqualTo(new Protein(List.of(METHIONINE, GLYCINE, LEUCINE, SERINE, ASPARTIC_ACID)));
+        Cell cell = new SomaticCell(dna);
+        System.out.println(cell.DNA().templateStrand());
+        cell.mitosis();
     }
+
 }
