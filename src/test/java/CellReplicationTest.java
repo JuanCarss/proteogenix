@@ -1,4 +1,5 @@
 import es.ulpgc.*;
+import es.ulpgc.cells.SomaticCell;
 import es.ulpgc.polymerases.RNAPolymerase;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,8 +22,7 @@ public class CellReplicationTest {
     public void should_create_Cell_from_DNA() {
         DNA dna = deserializer.deserialize("ATGGGGCTCAGCGAC\tS");
         Cell cell = new SomaticCell(dna);
-        System.out.println(cell.DNA().templateStrand());
-        cell.mitosis();
+        cell.mitose();
     }
 
 }

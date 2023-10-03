@@ -1,4 +1,4 @@
-package es.ulpgc;
+package es.ulpgc.cells;
 
 public class GerminativeCell {
 }

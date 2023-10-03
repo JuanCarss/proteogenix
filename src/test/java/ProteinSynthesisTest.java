@@ -24,7 +24,7 @@ public class ProteinSynthesisTest {
     @Test
     public void should_synthesize_protein_from_DNA_with_sense_strand() {
         DNA dna = deserializer.deserialize("ATGGGGCTCAGCGAC\tS");
-        assertThat(ribosome.translate(polymerase.transcribe(dna.templateStrand(), 0, 15)))
+        assertThat(ribosome.translate(polymerase.transcribe(dna.templateStrand())))
                 .isEqualTo(new Protein(List.of(METHIONINE, GLYCINE, LEUCINE, SERINE, ASPARTIC_ACID)));
     }
 }

@@ -15,4 +15,8 @@ public interface Strand {
                 .map(Codon::new)
                 .collect(Collectors.toList());
     }
+
+    default int size() {
+        return bases().size();
+    }
 }

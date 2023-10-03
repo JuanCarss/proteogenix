@@ -12,12 +12,10 @@ import static es.ulpgc.NitrogenousBase.URACIL;
 
 public class RNAPolymerase implements Polymerase {
     @Override
-    public MessengerRNA transcribe(Strand strand, int promoter, int termination) {
-        if ((termination - promoter) % 3 != 0) throw new RuntimeException("Gene length is not divisible by three");
+    public MessengerRNA transcribe(Strand strand) {
+        // TODO add gene detection
         return new MessengerRNA(strand.bases().stream()
-                .skip(promoter)
                 .map(RNAPolymerase::complement)
-                .limit(termination)
                 .collect(Collectors.toList()));
     }
 
