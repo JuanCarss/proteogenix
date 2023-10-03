@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface Cell {
     DNA DNA();
-    void mitosis();
+    List<SomaticCell> mitosis();
     List<Strand> helicase();
 
 
