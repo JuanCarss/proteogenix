@@ -4,5 +4,6 @@ import java.util.List;
 
 
 public interface Cell {
-    List<Cell> mitose();
+    List<Cell> performMitosis();
+    Protein synthesizeProtein();
 }

@@ -9,12 +9,10 @@ import es.ulpgc.strands.Sense;
 import java.util.stream.Collectors;
 
 public class DNAPolymerase implements Polymerase {
-    private static final int FRAGMENT_SIZE = 200;
-
     @Override
     public Strand transcribe(Strand strand) {
         if (isSenseStrand(strand)) return transcribeFromOkazakiFragments(strand);
-        return new Antisense(strand.bases().stream()
+        return new Sense(strand.bases().stream()
                 .map(NitrogenousBase::complement)
                 .collect(Collectors.toList()));
     }
@@ -23,7 +21,9 @@ public class DNAPolymerase implements Polymerase {
         return strand instanceof Sense;
     }
 
-    private Sense transcribeFromOkazakiFragments(Strand strand) {
-        return null;
+    private Antisense transcribeFromOkazakiFragments(Strand strand) {
+        return new Antisense(strand.bases().stream()
+                .map(NitrogenousBase::complement)
+                .collect(Collectors.toList()));
     }
 }

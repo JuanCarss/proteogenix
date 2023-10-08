@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Codon {
+    public static final int SIZE = 3;
     private final NitrogenousBase firstBase;
     private final NitrogenousBase secondBase;
     private final NitrogenousBase thirdBase;
@@ -26,7 +27,7 @@ public class Codon {
     }
 
     private boolean isTriplet(List<NitrogenousBase> bases) {
-        return bases.size() == 3;
+        return bases.size() == SIZE;
     }
 
     @Override
