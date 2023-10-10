@@ -28,6 +28,7 @@ public class SomaticCell implements Cell {
                 .map(this.dnaPolymerase::transcribe)
                 .map(strand -> new SomaticCell(new Nucleus(new DNA(strand)), this.helicase, this.dnaPolymerase, this.rnaPolymerase, this.ribosome))
                 .collect(Collectors.toList());
+
     }
 
     @Override
