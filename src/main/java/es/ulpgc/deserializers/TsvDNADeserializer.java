@@ -31,10 +31,10 @@ public class TsvDNADeserializer implements DNADeserializer {
                 .collect(Collectors.toList());
     }
 
-    private NitrogenousBase toNitrogenousBase(Character base) {
-        if (base.equals('a')) return ADENINE;
-        if (base.equals('c')) return CYTOSINE;
-        if (base.equals('g')) return GUANINE;
+    private NitrogenousBase toNitrogenousBase(Character character) {
+        if (character.equals('a')) return ADENINE;
+        if (character.equals('c')) return CYTOSINE;
+        if (character.equals('g')) return GUANINE;
         return THYMINE;
     }
 }
